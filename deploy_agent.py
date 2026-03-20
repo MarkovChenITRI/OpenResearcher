@@ -437,21 +437,34 @@ def worker_entry(
         try:
             # Initialize generator based on mode
             if args.vllm_server_url:
-                # Get the server URL for this worker
-                if hasattr(args, 'vllm_server_urls') and len(args.vllm_server_urls) > 1:
-                    server_url = args.vllm_server_urls[worker_idx % len(args.vllm_server_urls)]
+                # Check if using Azure OpenAI
+                if args.vllm_server_url == "AZURE_OPENAI":
+                    # Use Azure OpenAI Generator
+                    from utils.azure_openai_generator import AzureOpenAIAsyncGenerator
+                    generator = AzureOpenAIAsyncGenerator(
+                        azure_endpoint=os.getenv("AZURE_OPENAI_ENDPOINT"),
+                        deployment_name=os.getenv("AZURE_OPENAI_DEPLOYMENT"),
+                        api_key=os.getenv("AZURE_OPENAI_API_KEY"),
+                        api_version=os.getenv("AZURE_OPENAI_API_VERSION", "2024-12-01-preview"),
+                        use_native_tools=True
+                    )
+                    print(f"[Worker {worker_idx}] Using Azure OpenAI: {os.getenv('AZURE_OPENAI_DEPLOYMENT')}")
                 else:
-                    server_url = args.vllm_server_url
+                    # Get the server URL for this worker
+                    if hasattr(args, 'vllm_server_urls') and len(args.vllm_server_urls) > 1:
+                        server_url = args.vllm_server_urls[worker_idx % len(args.vllm_server_urls)]
+                    else:
+                        server_url = args.vllm_server_url
 
-                # Use OpenAI API with optional native tools support
-                from utils.openai_generator import OpenAIAsyncGenerator
-                generator = OpenAIAsyncGenerator(
-                    base_url=server_url,
-                    model_name=args.model_name_or_path,
-                    use_native_tools=True
-                )
+                    # Use OpenAI API with optional native tools support
+                    from utils.openai_generator import OpenAIAsyncGenerator
+                    generator = OpenAIAsyncGenerator(
+                        base_url=server_url,
+                        model_name=args.model_name_or_path,
+                        use_native_tools=True
+                    )
 
-                print(f"[Worker {worker_idx}] Using OpenAI API (native function calling) at {server_url}")
+                    print(f"[Worker {worker_idx}] Using OpenAI API (native function calling) at {server_url}")
             else:
                 # Use local vLLM engine (slow startup)
                 from utils.vllm_generator import vLLMAsyncGenerator
@@ -550,6 +563,18 @@ def worker_entry(
                     writer.write(json.dumps(rec, ensure_ascii=False) + "\n")
                     writer.flush()
         finally:
+            # Clean up generator (important for Azure OpenAI to avoid event loop errors)
+            if hasattr(generator, 'aclose'):
+                try:
+                    await generator.aclose()
+                except Exception as e:
+                    print(f"[Worker {worker_idx}] Warning: Error closing generator: {e}")
+            elif hasattr(generator, 'shutdown'):
+                try:
+                    generator.shutdown()
+                except Exception as e:
+                    print(f"[Worker {worker_idx}] Warning: Error shutting down generator: {e}")
+            
             print(f"[Worker {worker_idx}] Done.")
 
     asyncio.run(_run())

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" class="h-screen w-full">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>{% block title %}ITRI AI Hub{% endblock %}</title>
+  <meta name="description" content="{% block description %}ITRI AI Hub - Discover AI models for peak performance{% endblock %}"/>
+  <link rel="icon" href="/static/images/favicon.ico" type="image/x-icon"/>
+
+  <!-- Google Fonts: Lato -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap" rel="stylesheet"/>
+
+  <!-- Tailwind CSS v3 -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            lato: ['Lato', 'sans-serif'],
+          },
+          colors: {
+            'login-dark-blue': '#1a2e4a',
+          },
+          screens: {
+            '3xl': '1920px',
+          },
+        },
+      },
+    }
+  </script>
+
+  <link rel="stylesheet" href="/static/css/aihub.css"/>
+  {% block extra_head %}{% endblock %}
+</head>
+<body class="font-lato h-screen w-full">
+  {% block body %}{% endblock %}
+  <script src="/static/js/aihub.js"></script>
+  {% block extra_scripts %}{% endblock %}
+</body>
+</html>

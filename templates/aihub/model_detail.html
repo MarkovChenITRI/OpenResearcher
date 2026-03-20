@@ -1,0 +1,221 @@
+{% extends "aihub/base.html" %}
+
+{% block title %}{{ model.name | default('Model Detail') }} - ITRI AI Hub{% endblock %}
+
+{% block body %}
+<div class="flex flex-col bg-white min-h-screen">
+
+  <!-- ===== NAVIGATION (solid bg on inner pages) ===== -->
+  <nav class="flex px-10 py-3 z-50 gap-5 justify-between w-full text-base
+              border-b border-gray-100 max-md:flex-wrap bg-white shadow-sm">
+    <a class="shrink-0 my-auto max-w-full w-[109px] 3xl:w-[200px]" href="/">
+      <img src="/static/images/logo_black_en.png" alt="ITRI AI Hub" loading="lazy"/>
+    </a>
+    <div class="flex gap-5 items-center">
+      <div class="flex gap-10 text-sm 3xl:text-xl text-neutral-600">
+        <a href="https://r300-ai.github.io/ITRI-AI-Hub/" target="_blank" rel="noreferrer"
+           class="hover:text-sky-500 transition-colors">Document</a>
+      </div>
+      <div class="flex gap-3 items-center font-bold">
+        {% if current_user %}
+        <span class="text-sm text-neutral-600">{{ current_user.name }}</span>
+        <a href="/logout">
+          <button class="inline-flex justify-center items-center px-5 py-2 text-sm font-bold
+                         whitespace-nowrap border border-gray-200 rounded-[100px] h-9
+                         hover:bg-gray-50 transition-colors">
+            Logout
+          </button>
+        </a>
+        {% else %}
+        <a href="/login">
+          <button class="inline-flex justify-center items-center px-5 py-2 text-sm font-bold
+                         whitespace-nowrap bg-sky-500 text-white rounded-[100px] h-9
+                         hover:bg-sky-600 transition-colors">
+            Login
+          </button>
+        </a>
+        {% endif %}
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===== BREADCRUMB ===== -->
+  <div class="px-10 lg:px-16 py-4 text-sm text-neutral-400 flex items-center gap-2">
+    <a href="/" class="hover:text-sky-500 transition-colors">Home</a>
+    <span>/</span>
+    <span class="text-neutral-700 font-medium">{{ model.name | default('Model Detail') }}</span>
+  </div>
+
+  <!-- ===== MAIN ===== -->
+  <main class="flex-1 px-4 lg:px-16 pb-16">
+    <div class="max-w-[1200px] mx-auto">
+
+      <!-- Model header -->
+      <div class="flex flex-col lg:flex-row gap-10 mt-4">
+
+        <!-- Thumbnail -->
+        <div class="w-full lg:w-[45%] rounded-[30px] overflow-hidden bg-gray-100 aspect-video">
+          <img src="{{ model.thumbnail | default('/static/images/model_placeholder.png') }}"
+               alt="{{ model.name }}"
+               class="w-full h-full object-cover"/>
+        </div>
+
+        <!-- Info -->
+        <div class="flex-1 flex flex-col gap-4">
+          <h1 class="text-2xl 3xl:text-4xl font-black text-neutral-900">
+            {{ model.name | default('Model Name') }}
+          </h1>
+          <p class="text-sm text-neutral-500 leading-relaxed">
+            {{ model.description | default('Model description goes here.') }}
+          </p>
+
+          <!-- Meta tags -->
+          <div class="flex flex-wrap gap-2 mt-2">
+            {% if model.device %}
+            <span class="px-3 py-1 text-xs bg-sky-50 text-sky-600 rounded-full border border-sky-100">
+              {{ model.device }}
+            </span>
+            {% endif %}
+            {% if model.chipset %}
+            <span class="px-3 py-1 text-xs bg-emerald-50 text-emerald-600 rounded-full border border-emerald-100">
+              {{ model.chipset }}
+            </span>
+            {% endif %}
+            {% if model.task %}
+            <span class="px-3 py-1 text-xs bg-violet-50 text-violet-600 rounded-full border border-violet-100">
+              {{ model.task }}
+            </span>
+            {% endif %}
+          </div>
+
+          <!-- Action buttons -->
+          <div class="flex gap-4 mt-6 flex-wrap">
+            <a target="_blank" rel="noopener noreferrer"
+               href="{{ model.github_url | default('https://github.com/R300-AI/ITRI-AI-Hub') }}">
+              <button class="inline-flex items-center gap-2 px-7 py-2.5 text-sm font-medium
+                             text-white bg-sky-500 rounded-[100px] transform transition-transform
+                             duration-300 hover:scale-105">
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385
+                           .6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555
+                           -3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225
+                           -1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815
+                           2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46
+                           -1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54
+                           -1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405
+                           3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65
+                           .24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805
+                           5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015
+                           2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24
+                           12c0-6.63-5.37-12-12-12z"/>
+                </svg>
+                View on GitHub
+              </button>
+            </a>
+            <a target="_blank" rel="noopener noreferrer"
+               href="{{ model.docs_url | default('https://r300-ai.github.io/ITRI-AI-Hub/') }}">
+              <button class="inline-flex items-center gap-2 px-7 py-2.5 text-sm font-medium
+                             text-sky-500 border border-sky-500 rounded-[100px]
+                             transform transition-transform duration-300 hover:scale-105 bg-white">
+                Documentation
+              </button>
+            </a>
+          </div>
+
+          <!-- Specs table -->
+          <div class="mt-6 border border-gray-100 rounded-[20px] overflow-hidden">
+            <table class="w-full text-sm">
+              <tbody>
+                {% for key, value in (model.specs | default({
+                  'Framework': 'PyTorch',
+                  'Input': '224×224 RGB',
+                  'Output': 'Classification',
+                  'License': 'MIT',
+                }).items()) %}
+                <tr class="border-b border-gray-50 last:border-0">
+                  <td class="px-5 py-3 font-semibold text-neutral-500 w-1/3 bg-gray-50">
+                    {{ key }}
+                  </td>
+                  <td class="px-5 py-3 text-neutral-700">{{ value }}</td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== TABS: Overview / How to Use / Benchmark ===== -->
+      <div class="mt-12">
+        <div class="flex border-b border-gray-200 gap-8" id="tabBar">
+          {% for tab in ['Overview', 'How to Use', 'Benchmark'] %}
+          <button onclick="AIHub.switchTab('{{ tab }}')"
+                  class="pb-3 text-sm font-semibold transition-colors border-b-2
+                         {% if loop.first %}border-sky-500 text-sky-500{% else %}border-transparent text-neutral-400 hover:text-neutral-700{% endif %}
+                         tab-btn"
+                  data-tab="{{ tab }}">
+            {{ tab }}
+          </button>
+          {% endfor %}
+        </div>
+
+        <!-- Tab contents -->
+        <div id="tab-Overview" class="tab-content mt-6">
+          <div class="prose max-w-none text-sm text-neutral-700 leading-relaxed">
+            {{ model.overview | default('<p>Model overview content goes here.</p>') | safe }}
+          </div>
+        </div>
+
+        <div id="tab-How to Use" class="tab-content mt-6 hidden">
+          <pre class="bg-gray-900 text-green-400 rounded-[20px] p-6 text-xs overflow-x-auto
+                      leading-relaxed">{{ model.usage_code | default('# Install dependencies\npip install itri-aihub\n\n# Run the model\nfrom aihub import Model\n\nmodel = Model.load("' ~ (model.id | default('model-name')) ~ '")\nresult = model.predict(input_data)') }}</pre>
+        </div>
+
+        <div id="tab-Benchmark" class="tab-content mt-6 hidden">
+          {% if model.benchmarks %}
+          <div class="overflow-x-auto">
+            <table class="w-full text-sm border-collapse">
+              <thead>
+                <tr class="bg-gray-50">
+                  {% for col in model.benchmark_cols | default(['Device', 'Chipset', 'FPS', 'Latency (ms)', 'Accuracy']) %}
+                  <th class="px-5 py-3 text-left font-semibold text-neutral-600 border-b border-gray-200">
+                    {{ col }}
+                  </th>
+                  {% endfor %}
+                </tr>
+              </thead>
+              <tbody>
+                {% for row in model.benchmarks %}
+                <tr class="border-b border-gray-100 hover:bg-gray-50 transition-colors">
+                  {% for cell in row %}
+                  <td class="px-5 py-3 text-neutral-700">{{ cell }}</td>
+                  {% endfor %}
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+          {% else %}
+          <p class="text-sm text-neutral-400 py-4">No benchmark data available.</p>
+          {% endif %}
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="py-8 px-10 border-t border-gray-100 text-sm text-neutral-400
+                 flex flex-col md:flex-row items-center justify-between gap-4">
+    <img src="/static/images/logo_black_en.png" alt="ITRI AI Hub" class="h-6"/>
+    <p>© {{ current_year | default('2024') }} ITRI AI Hub. All rights reserved.</p>
+    <div class="flex gap-6">
+      <a href="https://r300-ai.github.io/ITRI-AI-Hub/" target="_blank"
+         class="hover:text-neutral-600 transition-colors">Document</a>
+      <a href="https://github.com/R300-AI/ITRI-AI-Hub" target="_blank"
+         class="hover:text-neutral-600 transition-colors">GitHub</a>
+    </div>
+  </footer>
+
+</div>
+{% endblock %}

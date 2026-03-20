@@ -1,0 +1,166 @@
+/* =============================================================
+   ITRI AI Hub — Custom CSS
+   Framework: Tailwind CSS v3 (utility-first)
+   Font: Lato (100, 300, 400, 700, 900)
+   Primary: sky-500 (#0ea5e9)  |  Dark nav: sky-900 (#0c4a6e)
+   Login dark blue: #1a2e4a
+   ============================================================= */
+
+/* ---- CSS Variables ---- */
+:root {
+  --color-primary: #0ea5e9;        /* sky-500 */
+  --color-primary-dark: #0c4a6e;   /* sky-900 */
+  --color-login-dark: #1a2e4a;
+  --color-bg: #ffffff;
+  --color-text: #171717;           /* neutral-900 */
+  --color-muted: #737373;          /* neutral-500 */
+  --color-border: #f3f4f6;         /* gray-100 */
+  --radius-pill: 100px;
+  --radius-card: 30px;
+}
+
+/* ---- Base ---- */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  font-family: 'Lato', ui-sans-serif, system-ui, sans-serif;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+}
+
+/* ---- Utility: Login dark blue text ---- */
+.text-login-dark-blue {
+  color: var(--color-login-dark);
+}
+
+/* ---- Utility: Pill rounded ---- */
+.rounded-pill   { border-radius: var(--radius-pill); }
+.rounded-card   { border-radius: var(--radius-card); }
+
+/* ---- Nav transparent over hero ---- */
+nav.hero-nav {
+  background: transparent;
+}
+
+/* ---- Cards ---- */
+.model-card {
+  border-radius: var(--radius-card);
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+.model-card:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.09);
+  transform: translateY(-2px);
+}
+
+/* ---- Filter checkbox accent ---- */
+input[type="checkbox"] {
+  accent-color: var(--color-primary);
+  width: 14px;
+  height: 14px;
+  cursor: pointer;
+}
+
+/* ---- Search input ---- */
+#searchInput::placeholder {
+  color: #a3a3a3;
+}
+#searchInput:focus {
+  outline: none;
+}
+
+/* ---- Pagination page button ---- */
+.page-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: #525252;
+  transition: background-color 0.15s, color 0.15s;
+  cursor: pointer;
+}
+.page-btn:hover {
+  background-color: #f5f5f5;
+}
+.page-btn.active {
+  background-color: var(--color-primary);
+  color: #ffffff;
+}
+
+/* ---- Filter panel accordion ---- */
+.filter-panel {
+  overflow: hidden;
+  transition: max-height 0.25s ease;
+}
+.filter-panel.collapsed {
+  max-height: 0;
+}
+.filter-panel.expanded {
+  max-height: 400px;
+}
+
+/* ---- Filter chevron rotation ---- */
+.chevron-icon.rotated {
+  transform: rotate(180deg);
+}
+
+/* ---- Skeleton pulse override ---- */
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.5; }
+}
+.animate-pulse {
+  animation: pulse 1.8s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* ---- Tabs ---- */
+.tab-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  border-bottom-width: 2px;
+  padding-bottom: 12px;
+}
+.tab-btn.active {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+/* ---- Code block ---- */
+pre {
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+/* ---- Button base resets ---- */
+button {
+  cursor: pointer;
+}
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+/* ---- Responsive: hide desktop filter on mobile ---- */
+@media (max-width: 1023px) {
+  #desktopFilters {
+    display: none !important;
+  }
+}
+
+/* ---- 3xl screen support ---- */
+@media (min-width: 1920px) {
+  .model-card h3 { font-size: 1.125rem; }
+  nav             { font-size: 1.125rem; }
+}
+
+/* ---- Scrollbar (webkit) ---- */
+::-webkit-scrollbar        { width: 6px; height: 6px; }
+::-webkit-scrollbar-track  { background: #f9fafb; }
+::-webkit-scrollbar-thumb  { background: #d4d4d4; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #a3a3a3; }
