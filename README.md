@@ -5,8 +5,8 @@
 <div align="center" style="line-height: 1; margin-top: 16px;">
 
 <div align="center">
-    <a href="https://x.com/DongfuJiang/status/2020946549422031040"><img src="https://img.shields.io/badge/Twitter-000000?style=for-the-badge&logo=X&logoColor=white" alt="Blog"></a>
-  <a href="https://boiled-honeycup-4c7.notion.site/OpenResearcher-A-Fully-Open-Pipeline-for-Long-Horizon-Deep-Research-Trajectory-Synthesis-2f7e290627b5800cb3a0cd7e8d6ec0ea?source=copy_link"><img src="https://img.shields.io/badge/Blog-4285F4?style=for-the-badge&logo=google-chrome&logoColor=white" alt="Blog"></a>
+    <a href="https://huggingface.co/papers/2603.20278"><img src="https://img.shields.io/badge/arXiv-B31B1B?style=for-the-badge&logo=arXiv&logoColor=white" alt="Blog"></a>
+    <a href="https://x.com/zhuofengli96475/status/2036475211063648414"><img src="https://img.shields.io/badge/Twitter-000000?style=for-the-badge&logo=X&logoColor=white" alt="Blog"></a>
     <a href="https://github.com/TIGER-AI-Lab/OpenResearcher"><img src="https://img.shields.io/badge/Github-181717?style=for-the-badge&logo=github&logoColor=white" alt="Blog"></a>
   <a href="https://huggingface.co/datasets/OpenResearcher/OpenResearcher-Dataset"><img src="https://img.shields.io/badge/Dataset-FFB7B2?style=for-the-badge&logo=huggingface&logoColor=ffffff" alt="Dataset"></a>
   <a href="https://huggingface.co/OpenResearcher/OpenResearcher-30B-A3B"><img src="https://img.shields.io/badge/Model-FFD966?style=for-the-badge&logo=huggingface&logoColor=ffffff" alt="Model"></a>
@@ -15,19 +15,22 @@
   <a href="https://huggingface.co/datasets/OpenResearcher/OpenResearcher-Eval-Logs/tree/main"><img src="https://img.shields.io/badge/Eval%20Logs-755BB4?style=for-the-badge&logo=google-sheets&logoColor=white" alt="Eval Logs"></a>
 </div>
 
+<div align="center">
+  <img src="assets/imgs/nvidia_banner.svg" alt="Adopted by NVIDIA's Nemotron family of models!">
+</div>
 </div>
 <br>
 <p align="center">
-  🤗 <a href="https://huggingface.co/collections/TIGER-Lab/openresearcher" target="_blank">HuggingFace</a> ｜
-<img src="assets/imgs/notion.svg" width="15px" style="display:inline;"> <a href="https://boiled-honeycup-4c7.notion.site/OpenResearcher-A-Fully-Open-Pipeline-for-Long-Horizon-Deep-Research-Trajectory-Synthesis-2f7e290627b5800cb3a0cd7e8d6ec0ea?source=copy_link" target="_blank">Blog</a> ｜<img src="assets/imgs/slack.png" width="14px" style="display:inline;"> <a href="https://join.slack.com/t/openresearcher/shared_invite/zt-3p0r32cky-PqtZkVjjWIAI14~XwcRMfQ" target="_blank">Slack</a> | <img src="assets/imgs/wechat.svg" width="14px" style="display:inline;"> <a href="assets/imgs/wechat_group.jpg" target="_blank">WeChat</a> 
+  🤗 <a href="https://huggingface.co/collections/TIGER-Lab/openresearcher" target="_blank">HuggingFace</a> ｜<img src="assets/imgs/slack.png" width="14px" style="display:inline;"> <a href="https://join.slack.com/t/openresearcher/shared_invite/zt-3p0r32cky-PqtZkVjjWIAI14~XwcRMfQ" target="_blank">Slack</a> | <img src="assets/imgs/wechat.svg" width="14px" style="display:inline;"> <a href="assets/imgs/wechat_group.jpg" target="_blank">WeChat</a> 
 </p>
 
 ## 📣 News 
-+ **[2026.2.25]** 🔥 Honored to be among the **top 3 trending datasets** on 🤗 [Hugging Face](https://huggingface.co/datasets) — now **11K+** downloads! 🚀
-+ **[2026.2.18]** 🧪 The OpenResearcher training [code](https://github.com/TIGER-AI-Lab/OpenResearcher?tab=readme-ov-file#-optional-train-your-own-openresearcher) is now available. Start training your own OpenResearcher!
-+ **[2026.2.14]** 📸 Excited to have our OpenResearcher demo [video](https://x.com/zhuofengli96475/status/2021682952074097086). Dive in and unlock the power of Deep Research today!
-+ **[2026.2.12]**  🔥 Excited to see **OpenResearcher** powering deep research trajectory generation in [**NVIDIA’s NeMo Data Designer**](https://nvidia-nemo.github.io/DataDesigner/latest/devnotes/deep-research-trajectories-with-nemo-data-designer-and-mcp-tool-use/)!
-+ **[2026.2.10]** 🚀 Our X [post](https://x.com/DongfuJiang/status/2020946549422031040) received **1.2K+ likes**! Feel free to check out the post and join the discussion! 💬
++ **[2026.3.24]** 🔥 **OpenResearcher [paper](https://huggingface.co/papers/2603.20278) is now available**, highlighting practical insights into deep research pipeline design. Already adopted by **NVIDIA's Nemotron family of models**!
++ **[2026.2.25]** Honored to be among the **top 3 trending datasets** on 🤗 [Hugging Face](https://huggingface.co/datasets) — now **11K+** downloads! 
++ **[2026.2.18]** The OpenResearcher training [code](https://github.com/TIGER-AI-Lab/OpenResearcher?tab=readme-ov-file#-optional-train-your-own-openresearcher) is now available. Start training your own OpenResearcher!
++ **[2026.2.14]** Excited to have our OpenResearcher demo [video](https://x.com/zhuofengli96475/status/2021682952074097086). Dive in and unlock the power of Deep Research today!
++ **[2026.2.12]**  Excited to see **OpenResearcher** powering deep research trajectory generation in [**NVIDIA’s NeMo Data Designer**](https://nvidia-nemo.github.io/DataDesigner/latest/devnotes/deep-research-trajectories-with-nemo-data-designer-and-mcp-tool-use/)!
++ **[2026.2.10]** Our X [post](https://x.com/DongfuJiang/status/2020946549422031040) received **1.2K+ likes**! Feel free to check out the post and join the discussion! 
 
 ## 💥 Introduction
 
@@ -46,7 +49,7 @@
 
 
 ## ✨ Features
-+ 🔑 **Fully Open-Source Recipe** — We fully open-source our 96K high-quality [DeepResearch trajectory dataset](https://huggingface.co/datasets/OpenResearcher/OpenResearcher-Dataset) with 100+ turns generated by GPT-OSS-120B with [native browser tools](https://docs.vllm.ai/projects/recipes/en/latest/OpenAI/GPT-OSS.html#usage:~:text=Limitation%20section%20below.-,Tool%20Use,-%C2%B6), the leading [30B-A3B model](https://huggingface.co/OpenResearcher/OpenResearcher-30B-A3B) trained on it, [distillation recipe](https://boiled-honeycup-4c7.notion.site/OpenResearcher-A-Fully-Open-Pipeline-for-Long-Horizon-Deep-Research-Trajectory-Synthesis-2f7e290627b5800cb3a0cd7e8d6ec0ea?source=copy_link), and a lightweight [DeepResearch evaluation framework](https://github.com/TIGER-AI-Lab/OpenResearcher) to progress deep research.
++ 🔑 **Fully Open-Source Recipe** — We fully open-source our 96K high-quality [DeepResearch trajectory dataset](https://huggingface.co/datasets/OpenResearcher/OpenResearcher-Dataset) with 100+ turns generated by GPT-OSS-120B with [native browser tools](https://docs.vllm.ai/projects/recipes/en/latest/OpenAI/GPT-OSS.html#usage:~:text=Limitation%20section%20below.-,Tool%20Use,-%C2%B6), the leading [30B-A3B model](https://huggingface.co/OpenResearcher/OpenResearcher-30B-A3B) trained on it, [distillation recipe](https://arxiv.org/abs/2603.20278), and a lightweight [DeepResearch evaluation framework](https://github.com/TIGER-AI-Lab/OpenResearcher) to progress deep research.
 
 + 💰 **Highly Scalable and Low-Cost** — We generate DeepResearch trajectories at massive scale using self-built retriever over a dedicated ~11B-token [corpus](https://huggingface.co/datasets/OpenResearcher/OpenResearcher-Corpus), eliminating the need for external Search APIs. This scalable retriever significantly reduces training costs.
 
@@ -339,14 +342,14 @@ We are also looking forward to your feedback and suggestions!
 ##  📚 Citation
 
 ```bibtex
-@misc{li2025openresearcher,
-  title={OpenResearcher: A Fully Open Pipeline for Long-Horizon Deep Research Trajectory Synthesis},
-  author={Zhuofeng Li and Dongfu Jiang and Xueguang Ma and Haoxiang Zhang and Ping Nie and Yuyu Zhang and Kai Zou and Jianwen Xie and Yu Zhang and Wenhu Chen},
-  year={2025},
-  howpublished={\url{https://www.notion.so/OpenResearcher-A-Fully-Open-Pipeline-for-Long-Horizon-Deep-Research-Trajectory-Synthesis-2f7e290627b5800cb3a0cd7e8d6ec0ea}},
-  note={Notion Blog}
+@article{li2026openresearcher,
+  title={{OpenResearcher: A Fully Open Pipeline for Long-Horizon Deep Research Trajectory Synthesis}},
+  author={Li, Zhuofeng and Jiang, Dongfu and Ma, Xueguang and Zhang, Haoxiang and Nie, Ping and Zhang, Yuyu and Zou, Kai and Xie, Jianwen and Zhang, Yu and Chen, Wenhu},
+  journal={arXiv preprint arXiv:2603.20278},
+  year={2026}
 }
 ```
+
 
 ## ⭐ Star History
 [![Star History Chart](https://api.star-history.com/svg?repos=TIGER-AI-Lab/OpenResearcher&type=date&legend=top-left)](https://www.star-history.com/#TIGER-AI-Lab/OpenResearcher&type=date&legend=top-left)
